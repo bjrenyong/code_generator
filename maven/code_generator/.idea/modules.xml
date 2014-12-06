@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/generator_mybatis/generator_mybatis.iml" filepath="$PROJECT_DIR$/generator_mybatis/generator_mybatis.iml" />
+      <module fileurl="file://$USER_HOME$/svn_12/ihandy/project-dev/081.流量包统付业务/01.项目源码/trunk/maven/common/ihandy_traffic/ihandy_traffic_mybatis/ihandy_traffic_mybatis.iml" filepath="$USER_HOME$/svn_12/ihandy/project-dev/081.流量包统付业务/01.项目源码/trunk/maven/common/ihandy_traffic/ihandy_traffic_mybatis/ihandy_traffic_mybatis.iml" />
+      <module fileurl="file://$USER_HOME$/svn_12/ihandy/project-dev/081.流量包统付业务/01.项目源码/trunk/maven/platform/ihandy_traffic/ihandy_traffic_serverdb/ihandy_traffic_serverdb.iml" filepath="$USER_HOME$/svn_12/ihandy/project-dev/081.流量包统付业务/01.项目源码/trunk/maven/platform/ihandy_traffic/ihandy_traffic_serverdb/ihandy_traffic_serverdb.iml" />
+    </modules>
+  </component>
+</project>
+

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="" />
+    <mapping directory="$USER_HOME$/svn_12/ihandy/project-dev/081.流量包统付业务/01.项目源码/trunk/maven/common/ihandy_traffic/ihandy_traffic_mybatis" vcs="svn" />
+    <mapping directory="$USER_HOME$/svn_12/ihandy/project-dev/081.流量包统付业务/01.项目源码/trunk/maven/platform/ihandy_traffic/ihandy_traffic_serverdb" vcs="svn" />
+  </component>
+</project>
+

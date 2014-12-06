@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <classPathEntry location="mysql-connector-java-5.1.33.jar"/>
+    <context id="MysqlTables" targetRuntime="MyBatis3">
+        <!-- Pagination -->
+        <plugin type="com.zyt.mybatis.plugin.MysqlPaginationPlugin"/>
+        <!-- 关闭注解信息 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/mygenerator_v2?useUnicode=true"
+                        userId="myuser" password="mypassword">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- model的配置 -->
+        <javaModelGenerator targetPackage="ihandy.generator.mybatis.model" targetProject="./src/main/java">
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- mybatis的xml的配置 -->
+        <sqlMapGenerator targetPackage="mapper.mysql" targetProject="./src/main/resources">
+        </sqlMapGenerator>
+        <!-- mapper的配置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="ihandy.generator.mybatis.dao"
+                             targetProject="./src/main/java">
+        </javaClientGenerator>
+        <!-- 汽车品牌表 -->
+        <table tableName="TL_PROJECT"/>
+        <table tableName="TL_SERVER_INFO"/>
+        <table tableName="TL_CLASS_INFO"/>
+        <table tableName="TL_VARIABLE"/>
+    </context>
+</generatorConfiguration>

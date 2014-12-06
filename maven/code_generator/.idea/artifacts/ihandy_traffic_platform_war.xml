@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ihandy_traffic_platform:war">
+    <output-path>$USER_HOME$/svn_12/ihandy/project-dev/081.流量包统付业务/01.项目源码/trunk/maven/platform/ihandy_traffic/ihandy_traffic_platform/target</output-path>
+    <root id="archive" name="ihandy_traffic_platform.war">
+      <element id="artifact" artifact-name="ihandy_traffic_platform:war exploded" />
+    </root>
+  </artifact>
+</component>

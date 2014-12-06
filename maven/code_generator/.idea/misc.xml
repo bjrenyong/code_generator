@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EclipseCodeFormatter">
+    <option name="defaultSettings" value="true" />
+    <option name="formatter" value="ECLIPSE" />
+    <option name="id" value="1411480757146" />
+    <option name="name" value="default" />
+    <option name="pathToConfigFileJava" value="$USER_HOME$/backup/资料/formatter_ihandy.xml" />
+    <option name="selectedJavaProfile" value="ihandy_formatter" />
+  </component>
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$USER_HOME$/svn_12/ihandy/project-dev/081.流量包统付业务/01.项目源码/trunk/maven/platform/ihandy_traffic/ihandy_traffic_platform" />
+  </component>
+  <component name="IdProvider" IDEtalkID="000CE49A6DCCDBE5348640A63F18951D" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/generator_mybatis/pom.xml" />
+        <option value="$USER_HOME$/svn_12/ihandy/project-dev/081.流量包统付业务/01.项目源码/trunk/maven/common/ihandy_traffic/ihandy_traffic_mybatis/pom.xml" />
+        <option value="$USER_HOME$/svn_12/ihandy/project-dev/081.流量包统付业务/01.项目源码/trunk/maven/platform/ihandy_traffic/ihandy_traffic_serverdb/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="SvnBranchConfigurationManager">
+    <option name="mySupportsUserInfoFilter" value="true" />
+  </component>
+</project>
+

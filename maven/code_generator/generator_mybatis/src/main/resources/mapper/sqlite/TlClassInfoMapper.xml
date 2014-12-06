@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ihandy.generator.mybatis.dao.TlClassInfoMapper" >
+  <resultMap id="BaseResultMap" type="ihandy.generator.mybatis.model.TlClassInfo" >
+    <id column="CLASS_ID" property="classId" jdbcType="INTEGER" />
+    <result column="PROJECT_ID" property="projectId" jdbcType="INTEGER" />
+    <result column="PACKAGE_NAME" property="packageName" jdbcType="VARCHAR" />
+    <result column="CLASS_NAME" property="className" jdbcType="VARCHAR" />
+    <result column="CLASS_CN" property="classCn" jdbcType="VARCHAR" />
+    <result column="CLASS_TYPE" property="classType" jdbcType="INTEGER" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+    <result column="CLASS_BELONG" property="classBelong" jdbcType="INTEGER" />
+    <result column="CLASS_MEMO" property="classMemo" jdbcType="VARCHAR" />
+    <result column="ORDER_BY" property="orderBy" jdbcType="REAL" />
+    <result column="UPDATE_DATE" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="TEST_URL" property="testUrl" jdbcType="VARCHAR" />
+    <result column="TEST_TYPE" property="testType" jdbcType="INTEGER" />
+    <result column="TEST_DEMO" property="testDemo" jdbcType="VARCHAR" />
+    <result column="TEST_DEMO_DESC" property="testDemoDesc" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    CLASS_ID, PROJECT_ID, PACKAGE_NAME, CLASS_NAME, CLASS_CN, CLASS_TYPE, STATUS, CLASS_BELONG, 
+    CLASS_MEMO, ORDER_BY, UPDATE_DATE, TEST_URL, TEST_TYPE, TEST_DEMO, TEST_DEMO_DESC
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="ihandy.generator.mybatis.model.TlClassInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from TL_CLASS_INFO
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+      <if test="page != null" >
+        limit #{page.begin} #{page.end}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from TL_CLASS_INFO
+    where CLASS_ID = #{classId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from TL_CLASS_INFO
+    where CLASS_ID = #{classId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="ihandy.generator.mybatis.model.TlClassInfoExample" >
+    delete from TL_CLASS_INFO
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="ihandy.generator.mybatis.model.TlClassInfo" >
+    insert into TL_CLASS_INFO (CLASS_ID, PROJECT_ID, PACKAGE_NAME, 
+      CLASS_NAME, CLASS_CN, CLASS_TYPE, 
+      STATUS, CLASS_BELONG, CLASS_MEMO, 
+      ORDER_BY, UPDATE_DATE, TEST_URL, 
+      TEST_TYPE, TEST_DEMO, TEST_DEMO_DESC
+      )
+    values (#{classId,jdbcType=INTEGER}, #{projectId,jdbcType=INTEGER}, #{packageName,jdbcType=VARCHAR}, 
+      #{className,jdbcType=VARCHAR}, #{classCn,jdbcType=VARCHAR}, #{classType,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{classBelong,jdbcType=INTEGER}, #{classMemo,jdbcType=VARCHAR}, 
+      #{orderBy,jdbcType=REAL}, #{updateDate,jdbcType=TIMESTAMP}, #{testUrl,jdbcType=VARCHAR}, 
+      #{testType,jdbcType=INTEGER}, #{testDemo,jdbcType=VARCHAR}, #{testDemoDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="ihandy.generator.mybatis.model.TlClassInfo" >
+    insert into TL_CLASS_INFO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="classId != null" >
+        CLASS_ID,
+      </if>
+      <if test="projectId != null" >
+        PROJECT_ID,
+      </if>
+      <if test="packageName != null" >
+        PACKAGE_NAME,
+      </if>
+      <if test="className != null" >
+        CLASS_NAME,
+      </if>
+      <if test="classCn != null" >
+        CLASS_CN,
+      </if>
+      <if test="classType != null" >
+        CLASS_TYPE,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="classBelong != null" >
+        CLASS_BELONG,
+      </if>
+      <if test="classMemo != null" >
+        CLASS_MEMO,
+      </if>
+      <if test="orderBy != null" >
+        ORDER_BY,
+      </if>
+      <if test="updateDate != null" >
+        UPDATE_DATE,
+      </if>
+      <if test="testUrl != null" >
+        TEST_URL,
+      </if>
+      <if test="testType != null" >
+        TEST_TYPE,
+      </if>
+      <if test="testDemo != null" >
+        TEST_DEMO,
+      </if>
+      <if test="testDemoDesc != null" >
+        TEST_DEMO_DESC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="classId != null" >
+        #{classId,jdbcType=INTEGER},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=INTEGER},
+      </if>
+      <if test="packageName != null" >
+        #{packageName,jdbcType=VARCHAR},
+      </if>
+      <if test="className != null" >
+        #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="classCn != null" >
+        #{classCn,jdbcType=VARCHAR},
+      </if>
+      <if test="classType != null" >
+        #{classType,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="classBelong != null" >
+        #{classBelong,jdbcType=INTEGER},
+      </if>
+      <if test="classMemo != null" >
+        #{classMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderBy != null" >
+        #{orderBy,jdbcType=REAL},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="testUrl != null" >
+        #{testUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="testType != null" >
+        #{testType,jdbcType=INTEGER},
+      </if>
+      <if test="testDemo != null" >
+        #{testDemo,jdbcType=VARCHAR},
+      </if>
+      <if test="testDemoDesc != null" >
+        #{testDemoDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="ihandy.generator.mybatis.model.TlClassInfoExample" resultType="java.lang.Integer" >
+    select count(*) from TL_CLASS_INFO
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update TL_CLASS_INFO
+    <set >
+      <if test="record.classId != null" >
+        CLASS_ID = #{record.classId,jdbcType=INTEGER},
+      </if>
+      <if test="record.projectId != null" >
+        PROJECT_ID = #{record.projectId,jdbcType=INTEGER},
+      </if>
+      <if test="record.packageName != null" >
+        PACKAGE_NAME = #{record.packageName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.className != null" >
+        CLASS_NAME = #{record.className,jdbcType=VARCHAR},
+      </if>
+      <if test="record.classCn != null" >
+        CLASS_CN = #{record.classCn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.classType != null" >
+        CLASS_TYPE = #{record.classType,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null" >
+        STATUS = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.classBelong != null" >
+        CLASS_BELONG = #{record.classBelong,jdbcType=INTEGER},
+      </if>
+      <if test="record.classMemo != null" >
+        CLASS_MEMO = #{record.classMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderBy != null" >
+        ORDER_BY = #{record.orderBy,jdbcType=REAL},
+      </if>
+      <if test="record.updateDate != null" >
+        UPDATE_DATE = #{record.updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.testUrl != null" >
+        TEST_URL = #{record.testUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.testType != null" >
+        TEST_TYPE = #{record.testType,jdbcType=INTEGER},
+      </if>
+      <if test="record.testDemo != null" >
+        TEST_DEMO = #{record.testDemo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.testDemoDesc != null" >
+        TEST_DEMO_DESC = #{record.testDemoDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update TL_CLASS_INFO
+    set CLASS_ID = #{record.classId,jdbcType=INTEGER},
+      PROJECT_ID = #{record.projectId,jdbcType=INTEGER},
+      PACKAGE_NAME = #{record.packageName,jdbcType=VARCHAR},
+      CLASS_NAME = #{record.className,jdbcType=VARCHAR},
+      CLASS_CN = #{record.classCn,jdbcType=VARCHAR},
+      CLASS_TYPE = #{record.classType,jdbcType=INTEGER},
+      STATUS = #{record.status,jdbcType=INTEGER},
+      CLASS_BELONG = #{record.classBelong,jdbcType=INTEGER},
+      CLASS_MEMO = #{record.classMemo,jdbcType=VARCHAR},
+      ORDER_BY = #{record.orderBy,jdbcType=REAL},
+      UPDATE_DATE = #{record.updateDate,jdbcType=TIMESTAMP},
+      TEST_URL = #{record.testUrl,jdbcType=VARCHAR},
+      TEST_TYPE = #{record.testType,jdbcType=INTEGER},
+      TEST_DEMO = #{record.testDemo,jdbcType=VARCHAR},
+      TEST_DEMO_DESC = #{record.testDemoDesc,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="ihandy.generator.mybatis.model.TlClassInfo" >
+    update TL_CLASS_INFO
+    <set >
+      <if test="projectId != null" >
+        PROJECT_ID = #{projectId,jdbcType=INTEGER},
+      </if>
+      <if test="packageName != null" >
+        PACKAGE_NAME = #{packageName,jdbcType=VARCHAR},
+      </if>
+      <if test="className != null" >
+        CLASS_NAME = #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="classCn != null" >
+        CLASS_CN = #{classCn,jdbcType=VARCHAR},
+      </if>
+      <if test="classType != null" >
+        CLASS_TYPE = #{classType,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="classBelong != null" >
+        CLASS_BELONG = #{classBelong,jdbcType=INTEGER},
+      </if>
+      <if test="classMemo != null" >
+        CLASS_MEMO = #{classMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderBy != null" >
+        ORDER_BY = #{orderBy,jdbcType=REAL},
+      </if>
+      <if test="updateDate != null" >
+        UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="testUrl != null" >
+        TEST_URL = #{testUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="testType != null" >
+        TEST_TYPE = #{testType,jdbcType=INTEGER},
+      </if>
+      <if test="testDemo != null" >
+        TEST_DEMO = #{testDemo,jdbcType=VARCHAR},
+      </if>
+      <if test="testDemoDesc != null" >
+        TEST_DEMO_DESC = #{testDemoDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CLASS_ID = #{classId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="ihandy.generator.mybatis.model.TlClassInfo" >
+    update TL_CLASS_INFO
+    set PROJECT_ID = #{projectId,jdbcType=INTEGER},
+      PACKAGE_NAME = #{packageName,jdbcType=VARCHAR},
+      CLASS_NAME = #{className,jdbcType=VARCHAR},
+      CLASS_CN = #{classCn,jdbcType=VARCHAR},
+      CLASS_TYPE = #{classType,jdbcType=INTEGER},
+      STATUS = #{status,jdbcType=INTEGER},
+      CLASS_BELONG = #{classBelong,jdbcType=INTEGER},
+      CLASS_MEMO = #{classMemo,jdbcType=VARCHAR},
+      ORDER_BY = #{orderBy,jdbcType=REAL},
+      UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      TEST_URL = #{testUrl,jdbcType=VARCHAR},
+      TEST_TYPE = #{testType,jdbcType=INTEGER},
+      TEST_DEMO = #{testDemo,jdbcType=VARCHAR},
+      TEST_DEMO_DESC = #{testDemoDesc,jdbcType=VARCHAR}
+    where CLASS_ID = #{classId,jdbcType=INTEGER}
+  </update>
+</mapper>
